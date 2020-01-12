@@ -1,0 +1,18 @@
+What would you like to do?
+
+View All Employees
+View All Employees By Department 
+View All Employees By Manager
+Add Employee
+Remove Employee
+Update Employee Role
+Update Employee Manager
+
+- Add Employee 
+-- What is the employee's first name?
+-- What is the employee's last name? 
+-- What is the employee's role?
+-- What is the employee's manager? 
+
+- View All Employees By Manager
+-- Select the manager you would like to view:
