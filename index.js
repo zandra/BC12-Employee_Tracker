@@ -11,7 +11,7 @@ const questions = require('./questions');
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: 'saturdaybonnet',
+  password: '',
   database: 'employees_db',
   waitForConnections: true,
   connectionLimit: 4,
@@ -134,12 +134,11 @@ async function go() {
   } catch(error) {
     console.log("OH NO 😲😵 ");
     process.kill(process.pid);
-    // await pool.end();
   } 
 }
 
 function start() {
-  console.log("Hello! Welcome to the Praxis Employee Database 🕵️‍♀️ 🕵 🕵");
+  console.log(`Hello! Welcome to the Praxis Employee Database 🕵️‍♀️ 🕵 🕵`);
   go();
 }
 
