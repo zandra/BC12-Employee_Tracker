@@ -1,5 +1,4 @@
 exports.actionChoices = [
-  "View Executive Team",
   "View All Employees",
   "View All Employees By Department",
   "View All Employees By Manager",
@@ -7,6 +6,7 @@ exports.actionChoices = [
   "Remove Employee",
   "Update Employee Role",
   "Update Employee Manager",
+  "View Executive Team",
   "EXIT"
 ];
 exports.rolesArr = [

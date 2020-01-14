@@ -53,11 +53,10 @@ async function go() {
         const {employeeFirst, employeeLast, employeeRole, employeeManager} = await inquirer.prompt(questions.addEmployeeQuestions);
         let [managerFirst, managerLast] = employeeManager.split(" ").slice(0, 2);
         const addEmployee = await pool.execute(query.insertEmployee, [employeeFirst, employeeLast, employeeRole, managerFirst, managerLast]);
-        console.log(addEmployee[0]);
           if(addEmployee[0].affectedRows === 0 ) {
-            console.log("There was an error creating your new employee. Please try again.");
+              console.log("There was an error creating your new employee. Please try again.");
             }
-          console.log(`Employee ${employeeFirst} ${employeeLast} successfully created!`);
+            console.log(`Employee ${employeeFirst} ${employeeLast} successfully created! ✅`);
         break;   
       case "Remove Employee":
         const { removeEmployee } = await inquirer.prompt({
@@ -88,12 +87,11 @@ async function go() {
         }
         ]);
         const updateEmployeeRoleQuery = await pool.query(query.updateEmployeeRole, [updateRoleRole, updateRoleEmployee]);
-        if (updateEmployeeRoleQuery[0].changedRows === 0) {
-          console.log(`Unable to update ${updateRoleEmployee}'s role. Please contact the help desk for assistance.`);
+          if(updateEmployeeRoleQuery[0].changedRows === 0) {
+            console.log(`Unable to update ${updateRoleEmployee}'s role. Please contact the help desk for assistance.`);
+          } else {
+            console.log(`Successfully updated ${updateRoleEmployee}'s role: ${updateRoleRole}.`);      
           }
-          console.log(`Successfully updated ${updateRoleEmployee}'s role: ${updateRoleRole}.`);
-        console.log(updateEmployeeRoleQuery);
-        
         break;
       case "Update Employee Manager":
         const {updateManagerEmployee, updateManagerManager} = await inquirer.prompt([
@@ -115,8 +113,9 @@ async function go() {
         const updateEmployeeManagerQuery = await pool.execute(query.updateEmployeeManager, [getManagerId[0][0].id, updateManagerEmployee]);
           if (updateEmployeeManagerQuery[0].changedRows === 0) {
           console.log(`Unable to update ${updateManagerEmployee}'s manager. Please contact the help desk for assistance.`);
-          }
+          } else {
           console.log(`Successfully updated ${updateManagerEmployee}'s manager: ${updateManagerManager}.`);
+          }
         break;
       case "EXIT":
       default:
@@ -124,7 +123,7 @@ async function go() {
         await pool.end();
      }
      console.log("-----------------------");
-     console.log("-----------------------");
+     console.log("----- 🌐 PRAXIS 🌐-----");
      console.log("-----------------------");
     if (actions.action === "EXIT"){
     await pool.end();
@@ -140,7 +139,7 @@ async function go() {
 }
 
 function start() {
-  console.log("Hello! Welcome to the Praxis Employee Database 🕵️‍♀️🕵🕵");
+  console.log("Hello! Welcome to the Praxis Employee Database 🕵️‍♀️ 🕵 🕵");
   go();
 }
 
