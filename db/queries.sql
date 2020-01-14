@@ -1,7 +1,14 @@
 USE employees_db;
 SELECT
-  title
-FROM roles;
+  CONCAT(e.first_name, ' ', e.last_name) AS name
+FROM employee e
+WHERE
+  e.id = 3;
+UPDATE employee e
+SET
+  e.last_name = 'Ben Titan'
+WHERE
+  e.id = 3;
 -- Select all Employees
 SELECT
   CONCAT(e.first_name, ' ', e.last_name) AS Employee,
@@ -21,12 +28,25 @@ INSERT INTO employee (
     manager_id
   )
 VALUES(
-    ("Clint"),
-    ("Barton"),
-    ( SELECT r.id FROM roles r WHERE r.title = "Marketing Content"),
-    ( SELECT m.id FROM employee m WHERE m.first_name = "Gamora" AND m.last_name = "Ben Titan")
+    (?),
+    (?),
+    (
+      SELECT
+        r.id
+      FROM roles r
+      WHERE
+        r.title = ?
+    ),
+    (
+      SELECT
+        m.id
+      FROM employee m
+      WHERE
+        m.first_name = ?
+        AND m.last_name = ?
+    )
   );
-  -- Select employee by department
+-- Select employee by department
 SELECT
   CONCAT(e.first_name, ' ', e.last_name) AS Employee,
   d.department_name AS Department
@@ -34,4 +54,4 @@ FROM employee e
 INNER JOIN roles r ON e.role_id = r.id
 INNER JOIN department d ON r.department_id = d.id
 WHERE
-  d.department_name = 'Engineering';
+  d.department_name = ?;

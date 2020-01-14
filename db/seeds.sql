@@ -18,16 +18,17 @@ VALUES
   ('Software Engineer', '100000', 3),
   ('Sales Lead', '120000', 4),
   ('Inside Sales', '90000', 4),
-  ('Marketing Content', '100000', 5);
+  ('Marketing Content', '100000', 5),
+  ('Product Lead', '100000', 2);
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
   ('Steve', 'Rogers', 1, NULL),
   ('Carol', 'Danvers', 2, NULL),
   ('Gamora', 'Ben Titan', 4, 1),
-  ("T'Challa", NULL, 6, NULL),
+  ("T'Challa", " ", 6, NULL),
   ('Tony', 'Stark', 3, 2),
   ('Bruce', 'Banner', 7, 2),
   ('Nick', 'Fury', 9, 1),
   ('Pepper', 'Potts', 5, 1),
-  ('Natasha', 'Romanoff', 8, 6),
-  ('Natalia', 'Romanova', 8, 6);
+  ('Natalia', 'Romanova', 8, 6),
+  ('Natasha', 'Romanoff', 8, 6);
