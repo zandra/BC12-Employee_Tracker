@@ -17,5 +17,5 @@ This handy tool allows you to easily view, add, update, and remove employees fro
     * Utilize query results in my prompt answer choice arrays
     * Keep returning the user back to the Actions menu until she decides to exit
     
-- I also implemented a mysql connection pool 
+- I also implemented a mysql connection pool which I could let handle opening and closing my connections
 - TODO: Add validation to Add Employee name input
